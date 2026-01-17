@@ -4,7 +4,6 @@ import com.example.api.reservation.enuns.StatusReserva;
 import com.example.api.reservation.models.HospedeModel;
 import com.example.api.reservation.models.QuartoModel;
 import com.example.api.reservation.models.ReservaModel;
-import com.example.api.reservation.models.ServicoExtraModel;
 import com.example.api.reservation.repositories.HospedeRepository;
 import com.example.api.reservation.repositories.QuartoRepository;
 import com.example.api.reservation.repositories.ReservaRepository;
@@ -16,14 +15,14 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
-public class ReseervaService {
+public class ReservaService {
     private final ReservaRepository reservaRepository;
     private final QuartoRepository quartoRepository;
     private final HospedeRepository hospedeRepository;
 
-    public ReseervaService(ReservaRepository reservaRepository,
-                           QuartoRepository quartoRepository,
-                           HospedeRepository hospedeRepository) {
+    public ReservaService(ReservaRepository reservaRepository,
+                          QuartoRepository quartoRepository,
+                          HospedeRepository hospedeRepository) {
         this.reservaRepository = reservaRepository;
         this.quartoRepository = quartoRepository;
         this.hospedeRepository = hospedeRepository;
@@ -34,7 +33,7 @@ public class ReseervaService {
         QuartoModel quarto = quartoRepository.findById(quartoModel.getId())
                 .orElseThrow(() -> new RuntimeException("Quarto não encontrado."));
         //Regra de conflito.
-        boolean existeConflito = reservaRepository.existsByQuartoAndPeriodo(quartoModel.getId(), checkin, checkout);
+        boolean existeConflito = reservaRepository.existsByQuartoAndCheckinAndCheckout(quartoModel.getId(), checkin, checkout);
         if (existeConflito){
             throw new RuntimeException("Quarto já reservado para esse período.");
         }

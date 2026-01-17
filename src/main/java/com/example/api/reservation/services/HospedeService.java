@@ -29,7 +29,10 @@ public class HospedeService {
     }
 
     public List<HospedeModel> listandoHospedesPorIdDoUsuario(UUID id){
-        return hospedeRepository.findByUsarioId(id);
+        return hospedeRepository.findByUsuarioId(id);
+    }
+    public List<HospedeModel> listaTodosOsHospedes() {
+        return hospedeRepository.findAll();
     }
 
     public HospedeModel atualizaDadosHospede(HospedeModel hospedeModel) {
