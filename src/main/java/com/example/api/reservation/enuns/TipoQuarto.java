@@ -1,7 +1,7 @@
 package com.example.api.reservation.enuns;
 
 
-public enum Tipo {
+public enum TipoQuarto {
     SINGLE,
     DOUBLE,
     SUITE

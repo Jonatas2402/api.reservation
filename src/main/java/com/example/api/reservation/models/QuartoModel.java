@@ -1,7 +1,7 @@
 package com.example.api.reservation.models;
 
 import com.example.api.reservation.enuns.StatusQuarto;
-import com.example.api.reservation.enuns.Tipo;
+import com.example.api.reservation.enuns.TipoQuarto;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,7 +20,7 @@ public class QuartoModel {
     private UUID id;
     private String numeroQuarto;
     @Enumerated(EnumType.STRING)
-    private Tipo tipo;
+    private TipoQuarto tipoQuarto;
     private Integer capacidade;
     private BigDecimal precoDiaria;
     @Enumerated(EnumType.STRING)

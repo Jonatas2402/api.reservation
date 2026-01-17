@@ -14,6 +14,7 @@ public class PagamentoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+    @Enumerated(EnumType.STRING)
     private Metodo metodo;
     @Enumerated(EnumType.STRING)
     private StatusPg statusPg;
