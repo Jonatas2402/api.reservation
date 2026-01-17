@@ -13,13 +13,13 @@ import java.util.UUID;
 public class HospedeService {
 
     private final UsuarioRepository usuarioRepository;
-
     private final HospedeRepository hospedeRepository;
 
     public HospedeService(UsuarioRepository usuarioRepository, HospedeRepository hospedeRepository) {
         this.usuarioRepository = usuarioRepository;
         this.hospedeRepository = hospedeRepository;
     }
+
     public HospedeModel salva(UUID id, HospedeModel hospedeModel){
             UsuarioModel buscaUsuario = usuarioRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
@@ -27,7 +27,25 @@ public class HospedeService {
             hospedeModel.setUsuario(buscaUsuario);
             return hospedeRepository.save(hospedeModel);
     }
+
     public List<HospedeModel> listandoHospedesPorIdDoUsuario(UUID id){
         return hospedeRepository.findByUsarioId(id);
+    }
+
+    public HospedeModel atualizaDadosHospede(HospedeModel hospedeModel) {
+        HospedeModel hospede = hospedeRepository.findById(hospedeModel.getId())
+                .orElseThrow(() -> new RuntimeException("Hospede não encontrado"));
+
+        hospede.setNome(hospedeModel.getNome());
+        hospede.setEmail(hospedeModel.getEmail());
+        hospede.setTelefone(hospedeModel.getTelefone());
+
+        return hospedeRepository.save(hospede);
+    }
+    public void excluiHospede(HospedeModel hospedeModel) {
+        if (!hospedeRepository.existsById(hospedeModel.getId())){
+            throw new RuntimeException("Hospede não encontrado.");
+        }
+        hospedeRepository.deleteById(hospedeModel.getId());
     }
 }
