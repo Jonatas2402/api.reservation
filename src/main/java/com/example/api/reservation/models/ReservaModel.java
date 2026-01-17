@@ -25,11 +25,11 @@ public class ReservaModel {
 
     @ManyToOne
     @JoinColumn(name = "id_hospede")
-    private List<HospedeModel> hospede;
+    private HospedeModel hospede;
 
     @ManyToOne
     @JoinColumn(name = "id_quarto")
-    private List<QuartoModel> quarto;
+    private QuartoModel quarto;
 
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
     private List<PagamentoModel> pagamentos = new ArrayList<>();

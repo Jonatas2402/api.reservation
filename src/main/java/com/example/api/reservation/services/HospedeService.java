@@ -20,8 +20,8 @@ public class HospedeService {
         this.hospedeRepository = hospedeRepository;
     }
 
-    public HospedeModel salva(UUID id, HospedeModel hospedeModel){
-            UsuarioModel buscaUsuario = usuarioRepository.findById(id)
+    public HospedeModel salva(UsuarioModel usuarioModel, HospedeModel hospedeModel){
+            UsuarioModel buscaUsuario = usuarioRepository.findById(usuarioModel.getId())
                     .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
             hospedeModel.setUsuario(buscaUsuario);
