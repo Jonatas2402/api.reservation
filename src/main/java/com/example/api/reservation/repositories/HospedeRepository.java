@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface HospedeRepository extends JpaRepository<HospedeModel, UUID> {
 
-    List<HospedeModel> findByUsarioId(UUID id);
+    List<HospedeModel> findByUsuarioId(UUID id);
 }
