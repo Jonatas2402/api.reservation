@@ -26,7 +26,7 @@ public class QuartoModel {
     @Enumerated(EnumType.STRING)
     private StatusQuarto statusQuarto;
 
-    @OneToMany(mappedBy = "quarto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "quarto")
     private List<ReservaModel> reservas = new ArrayList<>();
 
 }

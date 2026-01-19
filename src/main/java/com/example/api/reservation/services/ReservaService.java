@@ -1,5 +1,6 @@
 package com.example.api.reservation.services;
 
+import com.example.api.reservation.enuns.StatusQuarto;
 import com.example.api.reservation.enuns.StatusReserva;
 import com.example.api.reservation.models.HospedeModel;
 import com.example.api.reservation.models.QuartoModel;
