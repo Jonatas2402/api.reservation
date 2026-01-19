@@ -1,6 +1,7 @@
 package com.example.api.reservation.models;
 
 import com.example.api.reservation.enuns.StatusReserva;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,7 +18,9 @@ public class ReservaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime checkin;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime checkout;
     @Enumerated(EnumType.STRING)
     private StatusReserva statusReserva;

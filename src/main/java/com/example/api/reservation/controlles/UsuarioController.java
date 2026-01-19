@@ -32,8 +32,8 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.listarTodosOsUsuarios());
     }
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioModel> atualizarPorId(@PathVariable("id") UUID id ,@RequestBody UsuarioModel usuario){
-        return ResponseEntity.ok(usuarioService.atualizarUsuario(usuario));
+    public ResponseEntity<UsuarioModel> atualizarPorId(@PathVariable("id") UsuarioModel id ,@RequestBody UsuarioModel usuario){
+        return ResponseEntity.ok(usuarioService.atualizarUsuario(id, usuario));
     }
 
 }

@@ -31,8 +31,8 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public UsuarioModel atualizarUsuario(UsuarioModel usuarioModel) {
-        UsuarioModel atualizaUsuario = buscarUsuarioPorId(usuarioModel.getId());
+    public UsuarioModel atualizarUsuario(UsuarioModel buscaId, UsuarioModel usuarioModel) {
+        UsuarioModel atualizaUsuario = buscarUsuarioPorId(buscaId.getId());
 
         atualizaUsuario.setNome(usuarioModel.getNome());
         atualizaUsuario.setEmail(usuarioModel.getEmail());

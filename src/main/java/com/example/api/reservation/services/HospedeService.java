@@ -35,15 +35,15 @@ public class HospedeService {
         return hospedeRepository.findAll();
     }
 
-    public HospedeModel atualizaDadosHospede(HospedeModel hospedeModel) {
-        HospedeModel hospede = hospedeRepository.findById(hospedeModel.getId())
+    public HospedeModel atualizaDadosHospede(HospedeModel buscaId, HospedeModel hospede) {
+        HospedeModel hospedeAtualizado = hospedeRepository.findById(buscaId.getId())
                 .orElseThrow(() -> new RuntimeException("Hospede não encontrado"));
 
-        hospede.setNome(hospedeModel.getNome());
-        hospede.setEmail(hospedeModel.getEmail());
-        hospede.setTelefone(hospedeModel.getTelefone());
+        hospedeAtualizado.setNome(hospede.getNome());
+        hospedeAtualizado.setEmail(hospede.getEmail());
+        hospedeAtualizado.setTelefone(hospede.getTelefone());
 
-        return hospedeRepository.save(hospede);
+        return hospedeRepository.save(hospedeAtualizado);
     }
     public void excluiHospede(HospedeModel hospedeModel) {
         if (!hospedeRepository.existsById(hospedeModel.getId())){
