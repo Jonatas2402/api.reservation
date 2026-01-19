@@ -8,6 +8,4 @@ import java.util.UUID;
 
 public interface QuartoRepository extends JpaRepository<QuartoModel, UUID> {
     boolean existsByNumeroQuarto (String numeroQuarto);
-
-    boolean existsByQuartoStatus(StatusQuarto statusQuarto);
 }
