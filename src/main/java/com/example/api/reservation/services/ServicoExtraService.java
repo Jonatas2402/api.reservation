@@ -4,9 +4,11 @@ import com.example.api.reservation.models.ReservaModel;
 import com.example.api.reservation.models.ServicoExtraModel;
 import com.example.api.reservation.repositories.ReservaRepository;
 import com.example.api.reservation.repositories.ServicoExtraRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ServicoExtraService {
     private final ServicoExtraRepository servicoExtraRepository;
     private final ReservaRepository reservaRepository;
