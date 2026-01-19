@@ -2,7 +2,6 @@ package com.example.api.reservation.controlles;
 
 import com.example.api.reservation.models.UsuarioModel;
 import com.example.api.reservation.services.UsuarioService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +10,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/usuario")
-public class UsuarioCointroller {
+public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    public UsuarioCointroller(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
